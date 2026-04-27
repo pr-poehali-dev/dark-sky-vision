@@ -3,25 +3,23 @@ import { useState, useEffect, useRef } from "react"
 import { useUIStore } from "@/lib/ui-store"
 import { Button } from "@/components/ui/button"
 
-const QUICK_CHIPS = ["Кто ты?", "Покажи арт", "Над чем работаешь?"]
+const QUICK_CHIPS = ["Что вы предлагаете?", "Смотреть МФО", "Как стать партнёром?"]
 
 const RESPONSES: Record<string, string> = {
-  "Кто ты?": "Я AI-помощник Алекса! Помогаю показать работы и рассказать о нем. Хочешь узнать больше?",
-  "Покажи арт":
-    "С удовольствием покажу работы Алекса! В них сочетаются цифровые и традиционные техники.",
-  "Над чем работаешь?":
-    "Сейчас в работе несколько проектов! Алекс занимается AI-приложениями и креативным кодингом.",
+  "Что вы предлагаете?": "Мы агрегируем лучшие предложения МФО со скидками и промокодами. Партнёры получают доступ к эксклюзивным условиям и комиссионным!",
+  "Смотреть МФО": "Открываю каталог МФО с актуальными предложениями и промокодами!",
+  "Как стать партнёром?": "Всё просто: оставьте заявку, мы пришлём условия сотрудничества и доступ к партнёрскому кабинету.",
 }
 
 const ACTION_RESPONSES: Record<string, { response: string; action: string }> = {
-  "открой арт": { response: "Открываю галерею!", action: "art" },
-  "покажи арт": { response: "Открываю раздел с артом!", action: "art" },
-  "открой резюме": { response: "Открываю резюме!", action: "resume" },
-  "покажи резюме": { response: "Вот резюме!", action: "resume" },
-  "открой обо мне": { response: "Открываю раздел обо мне!", action: "about" },
-  "покажи обо мне": { response: "Расскажу об Алексе!", action: "about" },
-  "открой статьи": { response: "Открываю статьи!", action: "writings" },
-  "покажи статьи": { response: "Вот статьи!", action: "writings" },
+  "смотреть мфо": { response: "Открываю каталог МФО!", action: "art" },
+  "каталог": { response: "Открываю каталог МФО!", action: "art" },
+  "промокоды": { response: "Открываю раздел с промокодами!", action: "writings" },
+  "скидки": { response: "Открываю актуальные скидки!", action: "writings" },
+  "о нас": { response: "Расскажу о платформе!", action: "about" },
+  "партнёрам": { response: "Открываю условия для партнёров!", action: "resume" },
+  "партнер": { response: "Открываю условия для партнёров!", action: "resume" },
+  "условия": { response: "Открываю условия сотрудничества!", action: "resume" },
 }
 
 type AppType = "about" | "resume" | "writings" | "art"
@@ -62,7 +60,7 @@ export function ChatPanel() {
     } else {
       // Default response for non-action messages
       const defaultResponse =
-        "Интересно! Я помогу изучить работы Алекса. Попробуй написать «открой арт» или «покажи резюме»!"
+        "Хороший вопрос! Напишите «каталог» — покажу МФО со скидками, или «условия» — расскажу о партнёрской программе."
       setMessages((prev) => [...prev, { text: userMessage, isUser: true }, { text: defaultResponse, isUser: false }])
     }
   }

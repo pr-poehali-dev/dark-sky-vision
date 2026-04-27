@@ -32,7 +32,8 @@ export default function HomePage() {
           {/* AI Robot */}
           <div className="flex flex-col items-center space-y-4 mb-8">
             <AnimatedRobot />
-            <h1 className="text-4xl font-black text-center">Привет.</h1>
+            <h1 className="text-4xl font-black text-center">МФО Партнёр</h1>
+            <p className="text-center text-gray-600 font-medium text-sm">Агрегатор МФО со скидками и промокодами для B2B партнёров</p>
           </div>
 
           {/* Chat Panel */}

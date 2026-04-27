@@ -1,14 +1,14 @@
 import { useUIStore } from "@/lib/ui-store"
 import { Button } from "@/components/ui/button"
-import { User, FileText, PenTool, Palette } from "lucide-react"
+import { Info, Handshake, Tag, LayoutGrid } from "lucide-react"
 
 type AppType = "about" | "resume" | "writings" | "art"
 
-const DOCK_ITEMS: Array<{ id: AppType; label: string; icon: typeof User }> = [
-  { id: "about", label: "Обо мне", icon: User },
-  { id: "resume", label: "Резюме", icon: FileText },
-  { id: "writings", label: "Статьи", icon: PenTool },
-  { id: "art", label: "Арт", icon: Palette },
+const DOCK_ITEMS: Array<{ id: AppType; label: string; icon: typeof Info }> = [
+  { id: "about", label: "О нас", icon: Info },
+  { id: "resume", label: "Партнёрам", icon: Handshake },
+  { id: "writings", label: "Промокоды", icon: Tag },
+  { id: "art", label: "Каталог", icon: LayoutGrid },
 ]
 
 export function Dock() {
